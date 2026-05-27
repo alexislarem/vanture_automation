@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "WEBME" },
+      { name: "description", content: "Digital Growth Lab creates modern, premium landing pages for personal portfolios and agency brands." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "WEBME" },
+      { property: "og:description", content: "Digital Growth Lab creates modern, premium landing pages for personal portfolios and agency brands." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "WEBME" },
+      { name: "twitter:description", content: "Digital Growth Lab creates modern, premium landing pages for personal portfolios and agency brands." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51d641d9-ec0e-41b9-9f86-2b2b2a117cac/id-preview-06f8a24c--88f12f88-0f98-449c-b793-51780b0f8f47.lovable.app-1779898081085.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51d641d9-ec0e-41b9-9f86-2b2b2a117cac/id-preview-06f8a24c--88f12f88-0f98-449c-b793-51780b0f8f47.lovable.app-1779898081085.png" },
     ],
     links: [
       {
