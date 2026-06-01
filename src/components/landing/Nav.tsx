@@ -3,7 +3,7 @@ export function Nav() {
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#top" className="font-display font-extrabold text-xl tracking-tighter">
-          BranchRaiz
+          Vanture
         </a>
         <div className="hidden md:flex gap-8 items-center text-sm font-medium uppercase tracking-wider">
           <a href="#servicios" className="hover:text-primary transition-colors">Servicios</a>

@@ -14,13 +14,13 @@ import { Footer } from "@/components/landing/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "BranchRaiz — Automatización, IA y crecimiento digital" },
+      { title: "Vanture — Automatización, IA y crecimiento digital" },
       {
         name: "description",
         content:
           "Diseñamos sistemas de automatización, integraciones de IA, webs de alto rendimiento y estrategias de crecimiento para personas, emprendedores y empresas.",
       },
-      { property: "og:title", content: "BranchRaiz — Automatización, IA y crecimiento digital" },
+      { property: "og:title", content: "Vanture — Automatización, IA y crecimiento digital" },
       {
         property: "og:description",
         content:
