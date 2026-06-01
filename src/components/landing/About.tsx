@@ -1,12 +1,12 @@
-import portrait from "@/assets/portrait.jpg";
-
 export function About() {
+  const portraitUrl = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop";
+
   return (
     <section id="sobre-mi" className="py-24 bg-surface text-surface-foreground overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
         <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden">
           <img
-            src={portrait}
+            src={portraitUrl}
             alt="Retrato profesional"
             className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
             loading="lazy"
