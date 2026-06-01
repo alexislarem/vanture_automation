@@ -25,7 +25,7 @@ export function About() {
               combina precisión técnica con visión comercial para que cada automatización genere ROI medible.
             </p>
             <p>
-              Más de una década resolviendo problemas digitales para emprendedores, marcas personales y
+              He trabajado resolviendo problemas digitales para emprendedores, marcas personales y
               empresas en crecimiento. Convierto procesos manuales y caóticos en operaciones fluidas,
               escalables y rentables.
             </p>
@@ -40,8 +40,8 @@ export function About() {
               <div className="text-xs font-mono uppercase opacity-50 mt-2 tracking-widest">Eficiencia</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-display font-extrabold text-primary">10+</div>
-              <div className="text-xs font-mono uppercase opacity-50 mt-2 tracking-widest">Años</div>
+              <div className="text-3xl md:text-4xl font-display font-extrabold text-primary">∞</div>
+              <div className="text-xs font-mono uppercase opacity-50 mt-2 tracking-widest">Crecimiento</div>
             </div>
           </div>
         </div>
