@@ -1,4 +1,5 @@
 import process from "node:process";
+import { z } from "zod";
 
 // Server-only config. The .server.ts suffix prevents Vite from bundling
 // this file into the client — values here never reach the browser.
@@ -16,11 +17,44 @@ import process from "node:process";
 //     and server (analytics IDs, public URLs). Define in .env with the
 //     VITE_ prefix. Never put secrets here — they ship to the browser.
 
+const serverConfigSchema = z.object({
+  nodeEnv: z.string().optional(),
+  supabaseUrl: z.string().url().catch('https://placeholder.supabase.co'),
+  supabaseAnonKey: z.string().min(1).catch('placeholder-anon-key'),
+  n8nWebhookUrl: z.string().url().optional(),
+});
+
 export function getServerConfig() {
-  return {
+  const result = serverConfigSchema.safeParse({
     nodeEnv: process.env.NODE_ENV,
-    // Add server-only values here, e.g.:
-    //   databaseUrl: process.env.DATABASE_URL,
-    //   stripeSecretKey: process.env.STRIPE_SECRET_KEY,
-  };
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
+    n8nWebhookUrl: process.env.N8N_WEBHOOK_URL,
+  });
+
+  if (!result.success) {
+    return {
+      nodeEnv: process.env.NODE_ENV,
+      supabaseUrl: 'https://placeholder.supabase.co',
+      supabaseAnonKey: 'placeholder-anon-key',
+      n8nWebhookUrl: undefined,
+    };
+  }
+
+  const config = result.data;
+
+  // Emit warnings in production environments if fallback values are used or critical variables are missing
+  if (config.nodeEnv === 'production') {
+    if (config.supabaseUrl === 'https://placeholder.supabase.co') {
+      console.warn('[SERVER CONFIG WARNING]: SUPABASE_URL has not been set or is invalid. Falling back to placeholder URL.');
+    }
+    if (config.supabaseAnonKey === 'placeholder-anon-key') {
+      console.warn('[SERVER CONFIG WARNING]: SUPABASE_ANON_KEY has not been set or is invalid. Falling back to placeholder key.');
+    }
+    if (!config.n8nWebhookUrl) {
+      console.warn('[SERVER CONFIG WARNING]: N8N_WEBHOOK_URL is not configured in the environment.');
+    }
+  }
+
+  return config;
 }
