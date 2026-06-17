@@ -78,13 +78,10 @@ export class AutomationsRepository {
   }
 
   async incrementRunCount(id: string, userId: string): Promise<void> {
-    const current = await this.findById(id, userId);
-    if (!current) throw new Error('Automation not found');
-    const { error } = await this.supabase
-      .from('automations')
-      .update({ run_count: current.runCount + 1, last_run_at: new Date().toISOString() })
-      .eq('id', id)
-      .eq('user_id', userId);
+    const { error } = await this.supabase.rpc('increment_automation_run_count', {
+      automation_id: id,
+      user_uuid: userId,
+    });
     if (error) throw new Error(`DB Error: ${error.message}`);
   }
 

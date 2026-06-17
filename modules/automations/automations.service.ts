@@ -1,6 +1,7 @@
 import { AutomationsRepository } from './automations.repository';
 import { CreateAutomationDTO, UpdateAutomationDTO, Automation } from './automations.types';
-import { getUserPlan } from '@/lib/phase1-mocks';
+import { getUserPlan } from '../../src/lib/phase1-mocks';
+import { getServerConfig } from '../../src/lib/config.server';
 
 export class AutomationsService {
   constructor(private readonly repository: AutomationsRepository) {}
@@ -38,7 +39,11 @@ export class AutomationsService {
     if (!automation.n8nWorkflowId) throw new Error('No n8n workflow associated');
 
     try {
-      const response = await fetch(`${process.env.N8N_WEBHOOK_URL}/${automation.n8nWorkflowId}`, {
+      const config = getServerConfig();
+      if (!config.n8nWebhookUrl) {
+        throw new Error('N8N_WEBHOOK_URL is not configured');
+      }
+      const response = await fetch(`${config.n8nWebhookUrl}/${automation.n8nWorkflowId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId, automationId: id }),
