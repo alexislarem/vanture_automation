@@ -40,7 +40,7 @@ export function Hero() {
                 </DialogHeader>
                 <div className="flex flex-col gap-4 py-4">
                   <a
-                    href="https://wa.me/+34683594262" // TODO: Add real WhatsApp number
+                    href="https://wa.me/+34654788874" // TODO: Add real WhatsApp number
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20b858] text-white px-6 py-4 rounded-xl font-bold transition-all text-lg"

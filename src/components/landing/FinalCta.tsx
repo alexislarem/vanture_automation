@@ -23,7 +23,7 @@ export function FinalCta() {
             Agendar llamada
           </a>
           <a
-            href="https://wa.me/1234567890" // TODO: Add real WhatsApp number
+            href="https://wa.me/+34654788874" // TODO: Add real WhatsApp number
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 px-10 py-5 border border-white/20 rounded-full font-bold text-lg hover:bg-white/10 transition-colors"
