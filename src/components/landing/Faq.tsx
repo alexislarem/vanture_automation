@@ -1,3 +1,10 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 const faqs = [
   {
     q: "¿Cuánto tiempo toma ver resultados?",
@@ -23,7 +30,7 @@ const faqs = [
 
 export function Faq() {
   return (
-    <section id="faq" className="py-24 bg-card">
+    <section id="faq" className="py-24 bg-card border-t border-border/50">
       <div className="max-w-3xl mx-auto px-6">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary mb-4 block text-center">
           Preguntas frecuentes
@@ -31,22 +38,23 @@ export function Faq() {
         <h2 className="font-display font-extrabold text-4xl md:text-5xl text-center mb-16 tracking-tight">
           Resolvemos dudas
         </h2>
-        <div className="space-y-3">
-          {faqs.map((f) => (
-            <details
-              key={f.q}
-              className="group border border-border rounded-xl p-5 bg-background open:bg-secondary/50 transition-colors"
+        
+        <Accordion type="single" collapsible className="w-full space-y-4">
+          {faqs.map((f, i) => (
+            <AccordionItem 
+              key={i} 
+              value={`item-${i}`}
+              className="border border-border/50 rounded-xl px-6 bg-background/50 hover:bg-background transition-colors data-[state=open]:border-primary/50"
             >
-              <summary className="list-none cursor-pointer flex justify-between items-center font-bold gap-6">
-                <span className="font-display text-base md:text-lg">{f.q}</span>
-                <span className="group-open:rotate-45 transition-transform text-primary text-2xl shrink-0">
-                  +
-                </span>
-              </summary>
-              <p className="mt-4 text-muted-foreground leading-relaxed">{f.a}</p>
-            </details>
+              <AccordionTrigger className="hover:no-underline font-display font-bold text-lg text-left">
+                {f.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed text-base">
+                {f.a}
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     </section>
   );
