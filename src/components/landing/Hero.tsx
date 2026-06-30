@@ -8,32 +8,17 @@ import {
 } from "@/components/ui/dialog";
 import { MessageCircle } from "lucide-react";
 
-import BlurText from "@/components/ui/blur-text";
-
 export function Hero() {
   return (
     <section id="top" className="pt-24 pb-20 px-6 max-w-7xl mx-auto">
       <div className="grid lg:grid-cols-12 gap-12 items-end">
         <div className="lg:col-span-9">
-          
-          <BlurText
-            as="span"
-            text="Automatización · IA · Estrategia"
-            delay={50}
-            animateBy="words"
-            direction="top"
-            className="font-mono text-xs uppercase tracking-[0.25em] text-primary mb-6 block"
-          />
-
-          <BlurText
-            as="h1"
-            text="Escalamos tu negocio con inteligencia y diseño."
-            delay={100}
-            animateBy="words"
-            direction="top"
-            className="font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[0.92] tracking-tighter text-balance [&_span:nth-child(5)]:text-primary [&_span:nth-child(5)]:italic"
-          />
-
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary mb-6 block animate-reveal">
+            Automatización · IA · Estrategia
+          </span>
+          <h1 className="font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[0.92] tracking-tighter text-balance animate-reveal [animation-delay:100ms]">
+            Escalamos tu negocio con <span className="text-primary italic">inteligencia</span> y diseño.
+          </h1>
           <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-[58ch] text-pretty animate-reveal [animation-delay:200ms]">
             Diseñamos sistemas digitales que trabajan por ti. Automatizaciones, integraciones de IA, webs de
             alta conversión y estrategia de crecimiento — todo conectado en un ecosistema rentable.
@@ -55,7 +40,7 @@ export function Hero() {
                 </DialogHeader>
                 <div className="flex flex-col gap-4 py-4">
                   <a
-                    href="https://wa.me/1234567890" // TODO: Add real WhatsApp number
+                    href="https://wa.me/+34683594262" // TODO: Add real WhatsApp number
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20b858] text-white px-6 py-4 rounded-xl font-bold transition-all text-lg"

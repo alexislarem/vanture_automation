@@ -34,7 +34,7 @@ export function About() {
 
         <div>
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary mb-6 block">
-            Mi filosofía
+            Mi enfoque
           </span>
           <h2 className="font-display font-extrabold text-3xl md:text-5xl mb-8 tracking-tight">
             Estrategia humana en la era de los algoritmos.
